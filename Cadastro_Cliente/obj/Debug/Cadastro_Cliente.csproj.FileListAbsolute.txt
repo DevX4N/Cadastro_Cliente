@@ -1,0 +1,10 @@
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\Cadastro_Cliente.exe.config
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\Cadastro_Cliente.exe
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\Cadastro_Cliente.pdb
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.csproj.AssemblyReference.cache
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.Properties.Resources.resources
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.csproj.GenerateResource.cache
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.csproj.CoreCompileInputs.cache
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.exe
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.pdb
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.Form1.resources
