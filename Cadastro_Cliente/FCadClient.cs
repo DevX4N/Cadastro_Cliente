@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Globalization;
+using System.IO;
 
 
 namespace Cadastro_Cliente
@@ -20,6 +22,9 @@ namespace Cadastro_Cliente
         {
             InitializeComponent();
         }
+
+        string strConexao = "Server=127.0.0.1; Port=3306; Database=base; User=root; Password=;";
+        string pastaFotos = AppDomain.CurrentDomain.BaseDirectory + "//fotos//";
 
         private void FCadClient_KeyDown(object sender, KeyEventArgs e)
         {
@@ -32,13 +37,21 @@ namespace Cadastro_Cliente
 
         private void SalvarCliente()
         {
-            using (MySqlConnection con = new MySqlConnection("Server=127.0.0.1; Port=3306; Database=base; User=root; Password=;"))
+            using (MySqlConnection con = new MySqlConnection(strConexao))
             {
                 con.Open();
                 using (MySqlCommand cmd = con.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO tclientes (nome, documento, genero, rg, estado_civil, data_nasc, cep, endereco, numero, bairro, cidade, estado, celular, email, obs, situacao) " +
-                        " VALUES (@nome, @documento, @genero, @rg, @estado_civil, @data_nasc, @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, @email, @obs, @situacao)";
+                    if (txtID.Text == "")
+                    {
+                        cmd.CommandText = "INSERT INTO tclientes (nome, documento, genero, rg, estado_civil, data_nasc, cep, endereco, numero, bairro, cidade, estado, celular, email, obs, situacao) " +
+                            "VALUES (@nome, @documento, @genero, @rg, @estado_civil, @data_nasc, @cep, @endereco, @numero, @bairro, @cidade, @estado, @celular, @email, @obs, @situacao)";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "UPDATE tclientes set nome = @nome, documento = @documento, genero = @genero, rg = @rg, estado_civil = @estado_civil, data_nasc = @data_nasc, cep = @cep, " +
+                            "endereco = @endereco, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, celular = @celular, email = @email, obs = @obs, situacao = @situacao WHERE id " + txtID.Text;
+                    }
 
                     cmd.Parameters.AddWithValue("@nome", txtNomeCliente.Text);
                     cmd.Parameters.AddWithValue("@documento", txtCnpjCpf.Text);
@@ -53,11 +66,10 @@ namespace Cadastro_Cliente
                     cmd.Parameters.AddWithValue("@rg", txtrg.Text);
                     cmd.Parameters.AddWithValue("@estado_civil", cmbEstadoCivil.Text);
 
-                    if(txtDataNasc.Text == "  /  /")
-                         cmd.Parameters.AddWithValue("@data_nasc", DBNull.Value);
+                    if (txtDataNasc.Text == "  /  /")
+                        cmd.Parameters.AddWithValue("@data_nasc", DBNull.Value);
                     else
                         cmd.Parameters.AddWithValue("@data_nasc", Convert.ToDateTime(txtDataNasc.Text));
-
                     cmd.Parameters.AddWithValue("@cep", txtCep.Text);
                     cmd.Parameters.AddWithValue("@endereco", cmbEndereco.Text);
                     cmd.Parameters.AddWithValue("@numero", txtNumero.Text);
@@ -70,8 +82,11 @@ namespace Cadastro_Cliente
                     cmd.Parameters.AddWithValue("@situacao", (chkSituacao.Checked == true ? "Ativo" : "Inativo"));
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = "SELECT @@IDENTITY";
-                    txtID.Text = cmd.ExecuteScalar().ToString();
+                    if (txtID.Text == "")
+                    {
+                        cmd.CommandText = "SELECT @@IDENTITY";
+                        txtID.Text = cmd.ExecuteScalar().ToString();
+                    }
                 }
                 MessageBox.Show("Tudo certo!");
             }
@@ -79,33 +94,33 @@ namespace Cadastro_Cliente
 
         private bool Validacoes()
         {
-            if(txtNomeCliente.Text == "")
+            if (txtNomeCliente.Text == "")
             {
-                MessageBox.Show("Campo Nome é obrigatório", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                funcoes.msgErro("Campo Nome é obrigatório");
                 txtNomeCliente.Focus();
                 return true;
             }
 
-            if(rdoCPF.Checked == false && rdoCNPJ.Checked == false)
+            if (rdoCPF.Checked == false && rdoCNPJ.Checked == false)
             {
-                MessageBox.Show("Marque um tipo de Documentação \r CPF ou CNPJ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                funcoes.msgErro("Marque um tipo de Documentação \r CPF ou CNPJ");
                 return true;
             }
 
             if (txtCnpjCpf.Text == "")
             {
-                if(rdoCPF.Checked == true)
-                     MessageBox.Show("Digite o seu CPF!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (rdoCPF.Checked == true)
+                    funcoes.msgErro("Digite o seu CPF!");
                 else
-                    MessageBox.Show("Digite o seu CNPJ!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    funcoes.msgErro("Digite o seu CNPJ!");
 
                 txtCnpjCpf.Focus();
                 return true;
             }
 
-            if(rdoMasculino.Checked == false && rdoFeminino.Checked == false && rdoOutros.Checked == false)
+            if (rdoMasculino.Checked == false && rdoFeminino.Checked == false && rdoOutros.Checked == false)
             {
-                MessageBox.Show("Marque um Gênero", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                funcoes.msgErro("Marque um Gênero");
                 return true;
             }
 
@@ -117,7 +132,7 @@ namespace Cadastro_Cliente
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Data de Nascimento inválida", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    funcoes.msgErro("Data de Nascimento inválida");
                     txtDataNasc.Focus();
                     return true;
                 }
@@ -137,7 +152,7 @@ namespace Cadastro_Cliente
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja limpar todos os campos?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            if (funcoes.msgPergunta("Deseja limpar todos os campos?") == false)
                 return;
 
             txtID.Text = "";
@@ -145,26 +160,262 @@ namespace Cadastro_Cliente
             rdoCNPJ.Checked = false;
             rdoCPF.Checked = false;
             txtCnpjCpf.Text = "";
-            rdoMasculino.Checked = false;  
+            rdoMasculino.Checked = false;
             rdoFeminino.Checked = false;
             rdoOutros.Checked = false;
             txtrg.Text = "";
             cmbEstadoCivil.SelectedIndex = -1;
             txtDataNasc.Text = "";
             txtCep.Text = "";
-            cmbEndereco.SelectedIndex = -1;
+            cmbEndereco.SelectedIndex = 0;
             txtNumero.Text = "";
-            cmbBairro.SelectedIndex = -1;
-            cmbCidade.SelectedIndex = -1;
+            cmbBairro.SelectedIndex = 0;
+            cmbCidade.SelectedIndex = 0;
             cmbEstado.SelectedIndex = -1;
             txtCelular.Text = "";
             txtEmail.Text = "";
             txtObs.Text = "";
+
+
+            btnSalvar.Text = "Salvar";
+            pctImgCliente.Image = Properties.Resources.Monkey;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void rdoCPF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoCPF.Checked == true)
+            {
+                txtCnpjCpf.Mask = "000,000,000-00";
+                txtCnpjCpf.Focus();
+            }
+        }
+
+        private void rdoCNPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoCNPJ.Checked == true)
+            {
+                txtCnpjCpf.Mask = "00,000,000/0000-00";
+                txtCnpjCpf.Focus();
+            }
+        }
+
+        private void rdoMasculino_CheckedChanged(object sender, EventArgs e)
+        {
+            txtrg.Focus();
+        }
+
+        private void rdoFeminino_CheckedChanged(object sender, EventArgs e)
+        {
+            txtrg.Focus();
+        }
+
+        private void rdoOutros_CheckedChanged(object sender, EventArgs e)
+        {
+            txtrg.Focus();
+        }
+
+        private void txtDataNasc_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtDataNasc.Text == "  /  /")
+                return;
+            try
+            {
+                txtDataNasc.Text = Convert.ToDateTime(txtDataNasc.Text).ToString();
+            }
+            catch (Exception)
+            {
+                funcoes.msgErro("Data de Nascimento inválida");
+                e.Cancel = true;
+            }
+        }
+
+        private void cmbEstadoCivil_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbEstadoCivil.Text == "")
+            {
+                return;
+            }
+
+            if (cmbEstadoCivil.SelectedIndex == -1)
+            {
+                funcoes.msgErro("Selecione um item da lista");
+            }
+        }
+
+        private void cmbEstado_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbEstado.Text == "")
+            {
+                return;
+            }
+
+            if (cmbEstado.SelectedIndex == -1)
+            {
+                funcoes.msgErro("Selecione um item da lista");
+            }
+        }
+
+        private void txtNomeCliente_TextChanged(object sender, EventArgs e)
+        {
+            funcoes.PriMaiuscula(txtNomeCliente);
+        }
+
+        private void txtCep_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCep.Text.Length == 0)
+                return;
+            if (txtCep.Text.Replace(" ", "").Length < 8)
+            {
+                funcoes.msgErro("Informe um CEP válido");
+                e.Cancel = true;
+            }
+
+        }
+
+        private void txtCnpjCpf_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCnpjCpf.Text == "")
+                return;
+
+            if (rdoCPF.Checked == true && txtCnpjCpf.Text.Replace(" ", "").Length < 11)
+            {
+                funcoes.msgErro("Informe um CPF válido");
+                e.Cancel = true;
+            }
+            if (rdoCNPJ.Checked == true && txtCnpjCpf.Text.Replace(" ", "").Length < 14)
+            {
+                funcoes.msgErro("Informe um CNPJ válido");
+                e.Cancel = true;
+            }
+        }
+
+        private void txtCelular_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCelular.Text == "")
+                return;
+
+            if (txtCelular.Text.Replace(" ", "").Length < 11)
+            {
+                funcoes.msgErro("Informe um Número válido");
+                e.Cancel = true;
+            }
+        }
+
+        private void btnAddFoto_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text == "")
+            {
+                funcoes.msgErro("Salve os dados do cliente primeiro");
+                txtNomeCliente.Focus();
+                return;
+            }
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Arquivo de imagem(*.bmp;*.jpg;*.gif;*.jpeg;*.png)|*.bmp;*.jpg;*.gif;*.jpeg;*.png";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pctImgCliente.Image = Image.FromFile(openFileDialog.FileName);
+                File.Copy(openFileDialog.FileName, pastaFotos + "Cliente" + txtID.Text + ".png");
+            }
+        }
+
+        private void btnRemoveFoto_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text == "")
+            {
+                funcoes.msgErro("Não há foto para ser removida");
+                return;
+            }
+
+            if (File.Exists(pastaFotos + "Cliente" + txtID.Text + ".png"))
+            {
+                funcoes.msgErro("Não há foto para remover");
+                return;
+            }
+
+            if (funcoes.msgPergunta("Deseja realmente remover a foto?") == false)
+                return;
+            pctImgCliente.Image = Properties.Resources.Monkey;
+            File.Delete(pastaFotos + "Cliente" + txtID.Text + ".png");
+        }
+
+        private void FCadClient_Load(object sender, EventArgs e)
+        {
+            funcoes.CarregarComboBox(cmbEndereco, "tclientes", "endereco");
+            funcoes.CarregarComboBox(cmbCidade, "tclientes", "cidade");
+            funcoes.CarregarComboBox(cmbBairro, "tclientes", "bairro");
+
+            if (txtID.Text == "")
+                return;
+
+            btnSalvar.Text = "Atualizar";
+
+            DataTable dt = funcoes.BuscaSQL("SELECT * FROM tclientes WHERE id =" + txtID.Text);
+
+            txtNomeCliente.Text = dt.Rows[0]["nome"].ToString();
+            txtNumero.Text = dt.Rows[0]["numero"].ToString();
+            txtrg.Text = dt.Rows[0]["rg"].ToString();
+            txtCep.Text = dt.Rows[0]["cep"].ToString();
+            cmbBairro.Text = dt.Rows[0]["bairro"].ToString();
+            cmbCidade.Text = dt.Rows[0]["cidade"].ToString();
+            txtEmail.Text = dt.Rows[0]["email"].ToString();
+            txtObs.Text = dt.Rows[0]["obs"].ToString();
+            cmbEstado.Text = dt.Rows[0]["estado"].ToString();
+            cmbEstadoCivil.Text = dt.Rows[0]["estado_civil"].ToString();
+            cmbEndereco.Text = dt.Rows[0]["endereco"].ToString();
+            txtCelular.Text = dt.Rows[0]["celular"].ToString();
+            txtDataNasc.Text = dt.Rows[0]["data_nasc"].ToString();
+
+            if (dt.Rows[0]["documento"].ToString().Length == 11)
+            {
+                rdoCPF.Checked = true;
+            }
+            else
+            {
+                rdoCNPJ.Checked = true;
+            }
+
+            txtCnpjCpf.Text = dt.Rows[0]["documento"].ToString();
+
+            if (dt.Rows[0]["genero"].ToString() == "Masculino")
+            {
+                rdoMasculino.Checked = true;
+            }
+            else if (dt.Rows[0]["genero"].ToString() == "Feminino")
+            {
+                rdoFeminino.Checked = true;
+            }
+            else
+            {
+                rdoOutros.Checked = true;
+            }
+
+            if (dt.Rows[0]["situacao"].ToString() == "Ativo")
+            {
+                chkSituacao.Checked = true;
+            }
+            else
+            {
+                chkSituacao.Checked = false;
+            }
+
+            if (File.Exists(pastaFotos + "Cliente" + txtID.Text + ".png"))
+            {
+                pctImgCliente.Image = Image.FromFile(pastaFotos + "Cliente" + txtID.Text + ".png");
+            }
+            else
+            {
+                pctImgCliente.Image = Properties.Resources.Monkey;
+            }
+
+
+        }
+
     }
 }

@@ -203,9 +203,11 @@
             // 
             this.txtID.Location = new System.Drawing.Point(209, 56);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 25);
             this.txtID.TabIndex = 15;
             this.txtID.TabStop = false;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNomeCliente
             // 
@@ -213,6 +215,7 @@
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(344, 25);
             this.txtNomeCliente.TabIndex = 0;
+            this.txtNomeCliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
             // 
             // txtrg
             // 
@@ -305,24 +308,26 @@
             // 
             this.rdoMasculino.AutoSize = true;
             this.rdoMasculino.BackColor = System.Drawing.Color.Transparent;
-            this.rdoMasculino.Location = new System.Drawing.Point(11, 20);
+            this.rdoMasculino.Location = new System.Drawing.Point(21, 20);
             this.rdoMasculino.Name = "rdoMasculino";
             this.rdoMasculino.Size = new System.Drawing.Size(98, 22);
             this.rdoMasculino.TabIndex = 0;
             this.rdoMasculino.TabStop = true;
             this.rdoMasculino.Text = "Masculino";
             this.rdoMasculino.UseVisualStyleBackColor = false;
+            this.rdoMasculino.CheckedChanged += new System.EventHandler(this.rdoMasculino_CheckedChanged);
             // 
             // rdoFeminino
             // 
             this.rdoFeminino.AutoSize = true;
             this.rdoFeminino.BackColor = System.Drawing.Color.Transparent;
-            this.rdoFeminino.Location = new System.Drawing.Point(133, 20);
+            this.rdoFeminino.Location = new System.Drawing.Point(139, 20);
             this.rdoFeminino.Name = "rdoFeminino";
             this.rdoFeminino.Size = new System.Drawing.Size(90, 22);
             this.rdoFeminino.TabIndex = 43;
             this.rdoFeminino.Text = "Feminino";
             this.rdoFeminino.UseVisualStyleBackColor = false;
+            this.rdoFeminino.CheckedChanged += new System.EventHandler(this.rdoFeminino_CheckedChanged);
             // 
             // rdoOutros
             // 
@@ -334,17 +339,19 @@
             this.rdoOutros.TabIndex = 44;
             this.rdoOutros.Text = "Outros";
             this.rdoOutros.UseVisualStyleBackColor = false;
+            this.rdoOutros.CheckedChanged += new System.EventHandler(this.rdoOutros_CheckedChanged);
             // 
             // txtCnpjCpf
             // 
+            this.txtCnpjCpf.Font = new System.Drawing.Font("Consolas", 10F);
             this.txtCnpjCpf.HidePromptOnLeave = true;
             this.txtCnpjCpf.HideSelection = false;
             this.txtCnpjCpf.Location = new System.Drawing.Point(209, 110);
-            this.txtCnpjCpf.Mask = "000,000,000-00";
             this.txtCnpjCpf.Name = "txtCnpjCpf";
-            this.txtCnpjCpf.Size = new System.Drawing.Size(132, 25);
+            this.txtCnpjCpf.Size = new System.Drawing.Size(137, 23);
             this.txtCnpjCpf.TabIndex = 2;
             this.txtCnpjCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCnpjCpf.Validating += new System.ComponentModel.CancelEventHandler(this.txtCnpjCpf_Validating);
             // 
             // txtDataNasc
             // 
@@ -353,6 +360,7 @@
             this.txtDataNasc.Name = "txtDataNasc";
             this.txtDataNasc.Size = new System.Drawing.Size(127, 25);
             this.txtDataNasc.TabIndex = 6;
+            this.txtDataNasc.Validating += new System.ComponentModel.CancelEventHandler(this.txtDataNasc_Validating);
             // 
             // txtCep
             // 
@@ -361,6 +369,8 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(132, 25);
             this.txtCep.TabIndex = 7;
+            this.txtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCep.Validating += new System.ComponentModel.CancelEventHandler(this.txtCep_Validating);
             // 
             // txtCelular
             // 
@@ -369,38 +379,42 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(132, 25);
             this.txtCelular.TabIndex = 13;
+            this.txtCelular.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCelular.Validating += new System.ComponentModel.CancelEventHandler(this.txtCelular_Validating);
             // 
             // rdoCPF
             // 
             this.rdoCPF.AutoSize = true;
             this.rdoCPF.BackColor = System.Drawing.Color.Transparent;
-            this.rdoCPF.Location = new System.Drawing.Point(0, 0);
+            this.rdoCPF.Location = new System.Drawing.Point(3, 3);
             this.rdoCPF.Name = "rdoCPF";
             this.rdoCPF.Size = new System.Drawing.Size(50, 22);
             this.rdoCPF.TabIndex = 0;
             this.rdoCPF.TabStop = true;
             this.rdoCPF.Text = "CPF";
             this.rdoCPF.UseVisualStyleBackColor = false;
+            this.rdoCPF.CheckedChanged += new System.EventHandler(this.rdoCPF_CheckedChanged);
             // 
             // rdoCNPJ
             // 
             this.rdoCNPJ.AutoSize = true;
             this.rdoCNPJ.BackColor = System.Drawing.Color.Transparent;
-            this.rdoCNPJ.Location = new System.Drawing.Point(79, 0);
+            this.rdoCNPJ.Location = new System.Drawing.Point(76, 3);
             this.rdoCNPJ.Name = "rdoCNPJ";
             this.rdoCNPJ.Size = new System.Drawing.Size(58, 22);
             this.rdoCNPJ.TabIndex = 50;
             this.rdoCNPJ.Text = "CNPJ";
             this.rdoCNPJ.UseVisualStyleBackColor = false;
+            this.rdoCNPJ.CheckedChanged += new System.EventHandler(this.rdoCNPJ_CheckedChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rdoMasculino);
             this.groupBox1.Controls.Add(this.rdoFeminino);
             this.groupBox1.Controls.Add(this.rdoOutros);
-            this.groupBox1.Location = new System.Drawing.Point(347, 83);
+            this.groupBox1.Location = new System.Drawing.Point(352, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(344, 53);
+            this.groupBox1.Size = new System.Drawing.Size(339, 53);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genero";
@@ -443,6 +457,7 @@
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(230, 26);
             this.cmbEstado.TabIndex = 12;
+            this.cmbEstado.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEstado_Validating);
             // 
             // cmbEstadoCivil
             // 
@@ -460,11 +475,13 @@
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
             this.cmbEstadoCivil.Size = new System.Drawing.Size(187, 26);
             this.cmbEstadoCivil.TabIndex = 5;
+            this.cmbEstadoCivil.Validating += new System.ComponentModel.CancelEventHandler(this.cmbEstadoCivil_Validating);
             // 
             // cmbEndereco
             // 
             this.cmbEndereco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbEndereco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbEndereco.DisplayMember = "endereco";
             this.cmbEndereco.DropDownHeight = 200;
             this.cmbEndereco.FormattingEnabled = true;
             this.cmbEndereco.IntegralHeight = false;
@@ -479,6 +496,7 @@
             // 
             this.cmbBairro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbBairro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbBairro.DisplayMember = "bairro";
             this.cmbBairro.DropDownHeight = 200;
             this.cmbBairro.FormattingEnabled = true;
             this.cmbBairro.IntegralHeight = false;
@@ -493,6 +511,7 @@
             // 
             this.cmbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCidade.DisplayMember = "cidade";
             this.cmbCidade.DropDownHeight = 200;
             this.cmbCidade.FormattingEnabled = true;
             this.cmbCidade.IntegralHeight = false;
@@ -507,7 +526,7 @@
             // 
             this.pctImgCliente.BackColor = System.Drawing.Color.Transparent;
             this.pctImgCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pctImgCliente.Image = ((System.Drawing.Image)(resources.GetObject("pctImgCliente.Image")));
+            this.pctImgCliente.Image = global::Cadastro_Cliente.Properties.Resources.Monkey;
             this.pctImgCliente.Location = new System.Drawing.Point(65, 34);
             this.pctImgCliente.Name = "pctImgCliente";
             this.pctImgCliente.Size = new System.Drawing.Size(132, 128);
@@ -517,10 +536,10 @@
             // 
             // btnAddFoto
             // 
-            this.btnAddFoto.BackColor = System.Drawing.Color.White;
+            this.btnAddFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAddFoto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAddFoto.FlatAppearance.BorderSize = 0;
-            this.btnAddFoto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAddFoto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnAddFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFoto.Font = new System.Drawing.Font("Consolas", 9F);
             this.btnAddFoto.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFoto.Image")));
@@ -533,11 +552,13 @@
             this.btnAddFoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddFoto.UseVisualStyleBackColor = false;
+            this.btnAddFoto.Click += new System.EventHandler(this.btnAddFoto_Click);
             // 
             // btnRemoveFoto
             // 
             this.btnRemoveFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnRemoveFoto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnRemoveFoto.FlatAppearance.BorderSize = 0;
             this.btnRemoveFoto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRemoveFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveFoto.Font = new System.Drawing.Font("Consolas", 9F);
@@ -550,12 +571,13 @@
             this.btnRemoveFoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemoveFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRemoveFoto.UseVisualStyleBackColor = false;
+            this.btnRemoveFoto.Click += new System.EventHandler(this.btnRemoveFoto_Click);
             // 
             // btnFechar
             // 
-            this.btnFechar.BackColor = System.Drawing.Color.White;
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnFechar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Consolas", 9F);
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
@@ -572,9 +594,9 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.White;
+            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnNovo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Consolas", 9F);
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
@@ -591,9 +613,9 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.BackColor = System.Drawing.Color.White;
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Consolas", 9F);
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
@@ -613,9 +635,9 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.rdoCPF);
             this.panel1.Controls.Add(this.rdoCNPJ);
-            this.panel1.Location = new System.Drawing.Point(209, 87);
+            this.panel1.Location = new System.Drawing.Point(209, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(132, 21);
+            this.panel1.Size = new System.Drawing.Size(137, 27);
             this.panel1.TabIndex = 1;
             // 
             // FCadClient
@@ -674,6 +696,7 @@
             this.Name = "FCadClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cliente";
+            this.Load += new System.EventHandler(this.FCadClient_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FCadClient_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

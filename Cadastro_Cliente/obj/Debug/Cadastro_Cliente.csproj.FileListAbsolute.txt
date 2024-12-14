@@ -41,3 +41,6 @@ D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\Syst
 D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro.4D64F196.Up2Date
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\obj\Debug\Cadastro_Cliente.FMenuClientes.resources
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\C#\Cadastro_Cliente\Cadastro_Cliente\Cadastro_Cliente\bin\Debug\Newtonsoft.Json.xml

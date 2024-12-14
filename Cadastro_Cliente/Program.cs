@@ -16,7 +16,7 @@ namespace Cadastro_Cliente
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FCadClient());
+            Application.Run(new FMenuClientes());
         }
     }
 }
