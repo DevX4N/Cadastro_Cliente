@@ -76,7 +76,7 @@ namespace Cadastro_Cliente
 
         public static void CarregarComboBox (ComboBox cmb, string tabela, string campo)
         {
-            cmb.DataSource = funcoes.BuscaSQL("SELECT DISTINCT" + campo+ "FROM" + tabela + "WHERE" + campo + "<> ''");
+            cmb.DataSource = funcoes.BuscaSQL($"SELECT DISTINCT {campo} FROM {tabela} WHERE {campo} <> ''");
             cmb.DisplayMember = campo;
             cmb.SelectedIndex = -1;
         }

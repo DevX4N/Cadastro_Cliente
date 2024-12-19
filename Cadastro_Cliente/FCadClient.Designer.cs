@@ -73,6 +73,7 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAviso = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctImgCliente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -171,7 +172,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Consolas", 11.26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(60, 281);
+            this.label11.Location = new System.Drawing.Point(60, 293);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 19);
             this.label11.TabIndex = 10;
@@ -182,7 +183,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Consolas", 11.26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(306, 338);
+            this.label13.Location = new System.Drawing.Point(306, 350);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 19);
             this.label13.TabIndex = 12;
@@ -193,7 +194,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Consolas", 11.26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(60, 407);
+            this.label15.Location = new System.Drawing.Point(60, 419);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(108, 19);
             this.label15.TabIndex = 14;
@@ -236,7 +237,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Consolas", 11.26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(396, 281);
+            this.label16.Location = new System.Drawing.Point(396, 293);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(63, 19);
             this.label16.TabIndex = 26;
@@ -247,7 +248,7 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Consolas", 11.26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(60, 338);
+            this.label17.Location = new System.Drawing.Point(60, 350);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(63, 19);
             this.label17.TabIndex = 28;
@@ -258,7 +259,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Consolas", 11.26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(465, 338);
+            this.label18.Location = new System.Drawing.Point(465, 350);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(54, 19);
             this.label18.TabIndex = 29;
@@ -266,14 +267,14 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(469, 365);
+            this.txtEmail.Location = new System.Drawing.Point(469, 377);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(222, 25);
             this.txtEmail.TabIndex = 14;
             // 
             // txtObs
             // 
-            this.txtObs.Location = new System.Drawing.Point(64, 429);
+            this.txtObs.Location = new System.Drawing.Point(64, 441);
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
             this.txtObs.Size = new System.Drawing.Size(627, 98);
@@ -374,7 +375,7 @@
             // 
             // txtCelular
             // 
-            this.txtCelular.Location = new System.Drawing.Point(310, 365);
+            this.txtCelular.Location = new System.Drawing.Point(310, 377);
             this.txtCelular.Mask = "(00) 00000-0000";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(132, 25);
@@ -427,33 +428,34 @@
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.IntegralHeight = false;
             this.cmbEstado.Items.AddRange(new object[] {
-            "Acre",
-            "Alagoas",
-            "Amazonas",
-            "Bahia",
-            "Ceará",
-            "Distrito Federal",
-            "Espírito Santo",
-            "Goiás",
-            "Maranhão",
-            "Mato Grosso",
-            "Mato Grosso do Sul",
-            "Minas Gerais",
-            "Pará",
-            "Paraíba",
-            "Paraná",
-            "Pernambuco",
-            "Piauí",
-            "Rio de Janeiro",
-            "Rio Grande do Norte",
-            "Rio Grande do Sul",
-            "Rondônia",
-            "Roraima",
-            "Santa Catarina",
-            "São Paulo",
-            "Sergipe",
-            "Tocantins"});
-            this.cmbEstado.Location = new System.Drawing.Point(64, 365);
+            "Acre (AC)",
+            "Alagoas (AL)",
+            "Amapá (AP)",
+            "Amazonas (AM)",
+            "Bahia (BA)",
+            "Ceará (CE)",
+            "Distrito Federal (DF)",
+            "Espírito Santo (ES)",
+            "Goiás (GO)",
+            "Maranhão (MA)",
+            "Mato Grosso (MT)",
+            "Mato Grosso do Sul (MS)",
+            "Minas Gerais (MG)",
+            "Pará (PA)",
+            "Paraíba (PB)",
+            "Paraná (PR)",
+            "Pernambuco (PE)",
+            "Piauí (PI)",
+            "Rio de Janeiro (RJ)",
+            "Rio Grande do Norte (RN)",
+            "Rio Grande do Sul (RS)",
+            "Rondônia (RO)",
+            "Roraima (RR)",
+            "Santa Catarina (SC)",
+            "São Paulo (SP)",
+            "Sergipe (SE)",
+            "Tocantins (TO)"});
+            this.cmbEstado.Location = new System.Drawing.Point(64, 377);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(230, 26);
             this.cmbEstado.TabIndex = 12;
@@ -502,7 +504,7 @@
             this.cmbBairro.IntegralHeight = false;
             this.cmbBairro.Items.AddRange(new object[] {
             ""});
-            this.cmbBairro.Location = new System.Drawing.Point(64, 303);
+            this.cmbBairro.Location = new System.Drawing.Point(64, 315);
             this.cmbBairro.Name = "cmbBairro";
             this.cmbBairro.Size = new System.Drawing.Size(314, 26);
             this.cmbBairro.TabIndex = 10;
@@ -517,7 +519,7 @@
             this.cmbCidade.IntegralHeight = false;
             this.cmbCidade.Items.AddRange(new object[] {
             ""});
-            this.cmbCidade.Location = new System.Drawing.Point(400, 303);
+            this.cmbCidade.Location = new System.Drawing.Point(400, 315);
             this.cmbCidade.Name = "cmbCidade";
             this.cmbCidade.Size = new System.Drawing.Size(291, 26);
             this.cmbCidade.TabIndex = 11;
@@ -640,6 +642,19 @@
             this.panel1.Size = new System.Drawing.Size(137, 27);
             this.panel1.TabIndex = 1;
             // 
+            // lblAviso
+            // 
+            this.lblAviso.AutoSize = true;
+            this.lblAviso.BackColor = System.Drawing.Color.Transparent;
+            this.lblAviso.Font = new System.Drawing.Font("Consolas", 8F);
+            this.lblAviso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblAviso.Location = new System.Drawing.Point(62, 276);
+            this.lblAviso.Name = "lblAviso";
+            this.lblAviso.Size = new System.Drawing.Size(163, 13);
+            this.lblAviso.TabIndex = 58;
+            this.lblAviso.Text = "Aguarde consultando CEP...";
+            this.lblAviso.Visible = false;
+            // 
             // FCadClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -647,6 +662,7 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(751, 661);
+            this.Controls.Add(this.lblAviso);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnNovo);
@@ -721,7 +737,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNomeCliente;
         private System.Windows.Forms.TextBox txtrg;
         private System.Windows.Forms.TextBox txtNumero;
@@ -754,6 +769,8 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label lblAviso;
     }
 }
 

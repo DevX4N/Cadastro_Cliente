@@ -12,10 +12,14 @@ using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Globalization;
 using System.IO;
+using System.Collections;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 
 namespace Cadastro_Cliente
 {
+
     public partial class FCadClient : Form
     {
         public FCadClient()
@@ -49,9 +53,11 @@ namespace Cadastro_Cliente
                     }
                     else
                     {
-                        cmd.CommandText = "UPDATE tclientes set nome = @nome, documento = @documento, genero = @genero, rg = @rg, estado_civil = @estado_civil, data_nasc = @data_nasc, cep = @cep, " +
-                            "endereco = @endereco, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, celular = @celular, email = @email, obs = @obs, situacao = @situacao WHERE id " + txtID.Text;
+                        cmd.CommandText = "UPDATE tclientes SET nome = @nome, documento = @documento, genero = @genero, rg = @rg, estado_civil = @estado_civil, data_nasc = @data_nasc, cep = @cep, " +
+                            "endereco = @endereco, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, celular = @celular, email = @email, obs = @obs, situacao = @situacao WHERE id = @id";
+                        cmd.Parameters.AddWithValue("@id", txtID.Text); 
                     }
+
 
                     cmd.Parameters.AddWithValue("@nome", txtNomeCliente.Text);
                     cmd.Parameters.AddWithValue("@documento", txtCnpjCpf.Text);
@@ -80,13 +86,24 @@ namespace Cadastro_Cliente
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@obs", txtObs.Text);
                     cmd.Parameters.AddWithValue("@situacao", (chkSituacao.Checked == true ? "Ativo" : "Inativo"));
+
+                    Console.WriteLine("Query: " + cmd.CommandText);
+                    foreach (MySqlParameter param in cmd.Parameters)
+                    {
+                        Console.WriteLine($"Parameter: {param.ParameterName}, Value: {param.Value}");
+                    }
+
                     cmd.ExecuteNonQuery();
+
+
 
                     if (txtID.Text == "")
                     {
                         cmd.CommandText = "SELECT @@IDENTITY";
                         txtID.Text = cmd.ExecuteScalar().ToString();
                     }
+
+                  
                 }
                 MessageBox.Show("Tudo certo!");
             }
@@ -275,6 +292,53 @@ namespace Cadastro_Cliente
                 e.Cancel = true;
             }
 
+            lblAviso.Visible = true;
+            Application.DoEvents();
+
+            cmbEndereco.Text = string.Empty;
+            cmbBairro.Text = string.Empty;
+            cmbCidade.Text = string.Empty;
+            cmbEstado.Text = string.Empty;
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage resposta = client.GetAsync($"https://viacep.com.br/ws/{txtCep.Text}/json/").Result;
+
+                    dynamic json = JsonConvert.DeserializeObject(resposta.Content.ReadAsStringAsync().Result);
+
+                    if (json.erro == null)
+                    {
+                        cmbEndereco.Text = json.logradouro.ToString();
+                        cmbBairro.Text = json.bairro.ToString();
+                        cmbCidade.Text = json.localidade.ToString();
+                        cmbEstado.Text = json.uf.ToString();
+
+                        foreach (var item in cmbEstado.Items)
+                        {
+                            if (item.ToString().Contains($"({ cmbEstado.Text})"))
+                            {
+                                cmbEstado.Text = item.ToString();
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        txtCep.Focus();
+                        funcoes.msgErro("CEP Não Localizado...");
+                    }
+                }
+                catch (Exception)
+                {
+                    funcoes.msgErro("Não foi possivel realizar a consulta \rVerifique sua conexão com a internet");
+                }
+
+              
+            }
+
+            lblAviso.Visible = false;
         }
 
         private void txtCnpjCpf_Validating(object sender, CancelEventArgs e)
@@ -355,9 +419,7 @@ namespace Cadastro_Cliente
                 return;
 
             btnSalvar.Text = "Atualizar";
-
             DataTable dt = funcoes.BuscaSQL("SELECT * FROM tclientes WHERE id =" + txtID.Text);
-
             txtNomeCliente.Text = dt.Rows[0]["nome"].ToString();
             txtNumero.Text = dt.Rows[0]["numero"].ToString();
             txtrg.Text = dt.Rows[0]["rg"].ToString();
@@ -413,9 +475,6 @@ namespace Cadastro_Cliente
             {
                 pctImgCliente.Image = Properties.Resources.Monkey;
             }
-
-
         }
-
     }
 }
