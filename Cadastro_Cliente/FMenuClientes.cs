@@ -49,14 +49,14 @@ namespace Cadastro_Cliente
                     lin.DefaultCellStyle.ForeColor = Color.Crimson;
                 }
 
-                if (File.Exists(pastaFotos + lin.Cells["id"].Value.ToString() + ".png"))
-                {
-                    lin.Cells["foto"].Value = Image.FromFile(pastaFotos + lin.Cells["id"].Value.ToString() + ".png");
-                }
-                else
-                {
-                    lin.Cells["foto"].Value = Properties.Resources.Monkey;
-                }
+                //if (File.Exists(pastaFotos + lin.Cells["id"].Value.ToString() + ".png"))
+                //{
+                //    lin.Cells["foto"].Value = Image.FromFile(pastaFotos + lin.Cells["id"].Value.ToString() + ".png");
+                //}
+                //else
+                //{
+                //    lin.Cells["foto"].Value = Properties.Resources.Monkey;
+                //}
             }
 
             dtgListaCliente.ClearSelection();
@@ -80,9 +80,19 @@ namespace Cadastro_Cliente
         private void BuscarClientes()
         {
             dtgListaCliente.DataSource = funcoes.BuscaSQL("SELECT * FROM tclientes WHERE 1 " + GerarCriterios());
+            if ((dtgListaCliente.RowCount * 30) + 50 > 514)
+                dtgListaCliente.Height = 514;
+            else
+                dtgListaCliente.Height = (dtgListaCliente.RowCount * 30) + 50;
+
             ReoganizarGrid();
 
             Rodape();
+
+            if (dtgListaCliente.RowCount == 0)
+                lblAvisoEncontrado.Visible = true;
+            else
+                lblAvisoEncontrado.Visible = false;
         }
 
 
@@ -186,6 +196,48 @@ namespace Cadastro_Cliente
 
             lblTotalInativo.Text = "Total Inativos : " + contador.ToString();
             lblTotalAtivo.Text = "Total Ativos " + (dtgListaCliente.RowCount - contador).ToString();
+        }
+
+        private void dtgListaCliente_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+
+            DataGridViewRow lin = dtgListaCliente.Rows[e.RowIndex];
+
+            lin.DefaultCellStyle.BackColor = Color.SkyBlue;
+
+            if (lin.Cells["FotoBD"].Value == DBNull.Value)
+               lin.Cells["foto"].Value = Properties.Resources.Monkey;
+            else
+            lin.Cells["foto"].Value = lin.Cells["FotoBD"].Value;
+
+
+            //if (File.Exists(pastaFotos + lin.Cells["id"].Value.ToString() + ".png"))
+            //{
+            //    //lin.Cells["foto"].Value = Image.FromFile(pastaFotos + lin.Cells["id"].Value.ToString() + ".png");
+
+            //    using (FileStream temp = new FileStream(pastaFotos + lin.Cells["id"].Value.ToString() + ".png", FileMode.Open, FileAccess.Read))
+            //    {
+            //        Image img = Image.FromStream(temp);
+            //        lin.Cells["foto"].Value = img;
+            //    }
+            //}
+            //else
+            //{
+            //  
+            //}
+
+        }
+
+        private void dtgListaCliente_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+
+            dtgListaCliente.Rows[e.RowIndex].DefaultCellStyle.BackColor =  e.RowIndex % 2 == 0 ? Color.White : Color.AliceBlue;
+            dtgListaCliente.Rows[e.RowIndex].Cells["foto"].Value = null;
+
         }
     }
 }

@@ -29,32 +29,53 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMenuClientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnFichaCliente = new System.Windows.Forms.Button();
             this.btnRelatorioCliente = new System.Windows.Forms.Button();
             this.btnAlterarCliente = new System.Windows.Forms.Button();
             this.btnNovoCliente = new System.Windows.Forms.Button();
             this.dtgListaCliente = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pesqInativo = new System.Windows.Forms.RadioButton();
+            this.pesqAtivo = new System.Windows.Forms.RadioButton();
+            this.pescTodos = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pesqGenero = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pesqEstadoCivil = new System.Windows.Forms.ComboBox();
+            this.pesqNasc = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pesqEndereco = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pesqNome = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pesqCod = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalLocalizado = new System.Windows.Forms.Label();
+            this.lblTotalAtivo = new System.Windows.Forms.Label();
+            this.lblTotalInativo = new System.Windows.Forms.Label();
+            this.lblAvisoEncontrado = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FotoBD = new System.Windows.Forms.DataGridViewImageColumn();
             this.foto = new System.Windows.Forms.DataGridViewImageColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,25 +93,6 @@
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pesqGenero = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pesqEstadoCivil = new System.Windows.Forms.ComboBox();
-            this.pesqNome = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pesqCod = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pesqEndereco = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pesqNasc = new System.Windows.Forms.TextBox();
-            this.pescTodos = new System.Windows.Forms.RadioButton();
-            this.pesqAtivo = new System.Windows.Forms.RadioButton();
-            this.pesqInativo = new System.Windows.Forms.RadioButton();
-            this.lblTotalLocalizado = new System.Windows.Forms.Label();
-            this.lblTotalAtivo = new System.Windows.Forms.Label();
-            this.lblTotalInativo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListaCliente)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -185,24 +187,25 @@
             // 
             this.dtgListaCliente.AllowUserToAddRows = false;
             this.dtgListaCliente.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.AliceBlue;
-            this.dtgListaCliente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+            this.dtgListaCliente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgListaCliente.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dtgListaCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgListaCliente.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dtgListaCliente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Consolas", 11F);
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgListaCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgListaCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgListaCliente.ColumnHeadersHeight = 30;
             this.dtgListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgListaCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.FotoBD,
             this.foto,
             this.nome,
             this.documento,
@@ -225,198 +228,23 @@
             this.dtgListaCliente.Location = new System.Drawing.Point(16, 104);
             this.dtgListaCliente.Name = "dtgListaCliente";
             this.dtgListaCliente.ReadOnly = true;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Consolas", 11F);
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgListaCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Consolas", 11F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgListaCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dtgListaCliente.RowHeadersWidth = 4;
             this.dtgListaCliente.RowTemplate.Height = 30;
             this.dtgListaCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgListaCliente.Size = new System.Drawing.Size(1236, 514);
             this.dtgListaCliente.TabIndex = 1;
             this.dtgListaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaCliente_CellClick);
+            this.dtgListaCliente.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaCliente_CellMouseEnter);
+            this.dtgListaCliente.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListaCliente_CellMouseLeave);
             this.dtgListaCliente.Sorted += new System.EventHandler(this.dtgListaCliente_Sorted);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle41;
-            this.id.HeaderText = "Código";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 80;
-            // 
-            // foto
-            // 
-            this.foto.HeaderText = "Foto";
-            this.foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.foto.Name = "foto";
-            this.foto.ReadOnly = true;
-            this.foto.Width = 50;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "nome";
-            dataGridViewCellStyle42.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.nome.DefaultCellStyle = dataGridViewCellStyle42;
-            this.nome.HeaderText = "Nome do cliente";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            this.nome.Width = 287;
-            // 
-            // documento
-            // 
-            this.documento.DataPropertyName = "documento";
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.documento.DefaultCellStyle = dataGridViewCellStyle43;
-            this.documento.HeaderText = "CPF / CNPJ";
-            this.documento.Name = "documento";
-            this.documento.ReadOnly = true;
-            this.documento.Width = 170;
-            // 
-            // rg
-            // 
-            this.rg.DataPropertyName = "rg";
-            this.rg.HeaderText = "RG";
-            this.rg.Name = "rg";
-            this.rg.ReadOnly = true;
-            this.rg.Width = 171;
-            // 
-            // data_nasc
-            // 
-            this.data_nasc.DataPropertyName = "data_nasc";
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.Format = "d";
-            dataGridViewCellStyle44.NullValue = null;
-            this.data_nasc.DefaultCellStyle = dataGridViewCellStyle44;
-            this.data_nasc.HeaderText = "Nascimento";
-            this.data_nasc.Name = "data_nasc";
-            this.data_nasc.ReadOnly = true;
-            // 
-            // genero
-            // 
-            this.genero.DataPropertyName = "genero";
-            dataGridViewCellStyle45.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.genero.DefaultCellStyle = dataGridViewCellStyle45;
-            this.genero.HeaderText = "Gênero";
-            this.genero.Name = "genero";
-            this.genero.ReadOnly = true;
-            this.genero.Width = 115;
-            // 
-            // estado_civil
-            // 
-            this.estado_civil.DataPropertyName = "estado_civil";
-            dataGridViewCellStyle46.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.estado_civil.DefaultCellStyle = dataGridViewCellStyle46;
-            this.estado_civil.HeaderText = "Estado Civil";
-            this.estado_civil.Name = "estado_civil";
-            this.estado_civil.ReadOnly = true;
-            this.estado_civil.Width = 150;
-            // 
-            // celular
-            // 
-            this.celular.DataPropertyName = "celular";
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.celular.DefaultCellStyle = dataGridViewCellStyle47;
-            this.celular.HeaderText = "Celular";
-            this.celular.Name = "celular";
-            this.celular.ReadOnly = true;
-            this.celular.Width = 166;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            dataGridViewCellStyle48.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.email.DefaultCellStyle = dataGridViewCellStyle48;
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 279;
-            // 
-            // cep
-            // 
-            this.cep.DataPropertyName = "cep";
-            dataGridViewCellStyle49.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.cep.DefaultCellStyle = dataGridViewCellStyle49;
-            this.cep.HeaderText = "CEP";
-            this.cep.Name = "cep";
-            this.cep.ReadOnly = true;
-            this.cep.Width = 115;
-            // 
-            // endereco
-            // 
-            this.endereco.DataPropertyName = "endereco";
-            dataGridViewCellStyle50.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.endereco.DefaultCellStyle = dataGridViewCellStyle50;
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            this.endereco.ReadOnly = true;
-            this.endereco.Width = 303;
-            // 
-            // bairro
-            // 
-            this.bairro.DataPropertyName = "bairro";
-            dataGridViewCellStyle51.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.bairro.DefaultCellStyle = dataGridViewCellStyle51;
-            this.bairro.HeaderText = "Bairro";
-            this.bairro.Name = "bairro";
-            this.bairro.ReadOnly = true;
-            this.bairro.Width = 217;
-            // 
-            // cidade
-            // 
-            this.cidade.DataPropertyName = "cidade";
-            dataGridViewCellStyle52.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.cidade.DefaultCellStyle = dataGridViewCellStyle52;
-            this.cidade.HeaderText = "Cidade";
-            this.cidade.Name = "cidade";
-            this.cidade.ReadOnly = true;
-            this.cidade.Width = 226;
-            // 
-            // estado
-            // 
-            this.estado.DataPropertyName = "estado";
-            dataGridViewCellStyle53.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.estado.DefaultCellStyle = dataGridViewCellStyle53;
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Width = 180;
-            // 
-            // numero
-            // 
-            this.numero.DataPropertyName = "numero";
-            dataGridViewCellStyle54.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.numero.DefaultCellStyle = dataGridViewCellStyle54;
-            this.numero.HeaderText = "Nº ";
-            this.numero.Name = "numero";
-            this.numero.ReadOnly = true;
-            this.numero.Width = 70;
-            // 
-            // obs
-            // 
-            this.obs.DataPropertyName = "obs";
-            dataGridViewCellStyle55.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.obs.DefaultCellStyle = dataGridViewCellStyle55;
-            this.obs.HeaderText = "Obs";
-            this.obs.Name = "obs";
-            this.obs.ReadOnly = true;
-            this.obs.Visible = false;
-            this.obs.Width = 69;
-            // 
-            // situacao
-            // 
-            this.situacao.DataPropertyName = "situacao";
-            dataGridViewCellStyle56.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.situacao.DefaultCellStyle = dataGridViewCellStyle56;
-            this.situacao.HeaderText = "Situação";
-            this.situacao.Name = "situacao";
-            this.situacao.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -444,6 +272,47 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opções de consulta";
+            // 
+            // pesqInativo
+            // 
+            this.pesqInativo.AutoSize = true;
+            this.pesqInativo.BackColor = System.Drawing.Color.Transparent;
+            this.pesqInativo.ForeColor = System.Drawing.Color.Red;
+            this.pesqInativo.Location = new System.Drawing.Point(806, 50);
+            this.pesqInativo.Name = "pesqInativo";
+            this.pesqInativo.Size = new System.Drawing.Size(82, 22);
+            this.pesqInativo.TabIndex = 12;
+            this.pesqInativo.Text = "Inativo";
+            this.pesqInativo.UseVisualStyleBackColor = false;
+            this.pesqInativo.CheckedChanged += new System.EventHandler(this.pesqInativo_CheckedChanged);
+            // 
+            // pesqAtivo
+            // 
+            this.pesqAtivo.AutoSize = true;
+            this.pesqAtivo.BackColor = System.Drawing.Color.Transparent;
+            this.pesqAtivo.ForeColor = System.Drawing.Color.Green;
+            this.pesqAtivo.Location = new System.Drawing.Point(806, 31);
+            this.pesqAtivo.Name = "pesqAtivo";
+            this.pesqAtivo.Size = new System.Drawing.Size(66, 22);
+            this.pesqAtivo.TabIndex = 11;
+            this.pesqAtivo.Text = "Ativo";
+            this.pesqAtivo.UseVisualStyleBackColor = false;
+            this.pesqAtivo.CheckedChanged += new System.EventHandler(this.pesqAtivo_CheckedChanged);
+            // 
+            // pescTodos
+            // 
+            this.pescTodos.AutoSize = true;
+            this.pescTodos.BackColor = System.Drawing.Color.Transparent;
+            this.pescTodos.Checked = true;
+            this.pescTodos.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.pescTodos.Location = new System.Drawing.Point(806, 12);
+            this.pescTodos.Name = "pescTodos";
+            this.pescTodos.Size = new System.Drawing.Size(66, 22);
+            this.pescTodos.TabIndex = 10;
+            this.pescTodos.TabStop = true;
+            this.pescTodos.Text = "Todos";
+            this.pescTodos.UseVisualStyleBackColor = false;
+            this.pescTodos.CheckedChanged += new System.EventHandler(this.pescTodos_CheckedChanged);
             // 
             // label4
             // 
@@ -500,6 +369,42 @@
             this.pesqEstadoCivil.TabIndex = 6;
             this.pesqEstadoCivil.TextChanged += new System.EventHandler(this.pesqCod_TextChanged);
             // 
+            // pesqNasc
+            // 
+            this.pesqNasc.Location = new System.Drawing.Point(661, 39);
+            this.pesqNasc.Name = "pesqNasc";
+            this.pesqNasc.Size = new System.Drawing.Size(106, 25);
+            this.pesqNasc.TabIndex = 5;
+            this.pesqNasc.TextChanged += new System.EventHandler(this.pesqNome_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label6.Location = new System.Drawing.Point(658, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 18);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Data Nasc";
+            // 
+            // pesqEndereco
+            // 
+            this.pesqEndereco.Location = new System.Drawing.Point(489, 39);
+            this.pesqEndereco.Name = "pesqEndereco";
+            this.pesqEndereco.Size = new System.Drawing.Size(166, 25);
+            this.pesqEndereco.TabIndex = 5;
+            this.pesqEndereco.TextChanged += new System.EventHandler(this.pesqNome_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Location = new System.Drawing.Point(486, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Endereço Gerais";
+            // 
             // pesqNome
             // 
             this.pesqNome.Location = new System.Drawing.Point(87, 39);
@@ -536,83 +441,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(486, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Endereço Gerais";
-            // 
-            // pesqEndereco
-            // 
-            this.pesqEndereco.Location = new System.Drawing.Point(489, 39);
-            this.pesqEndereco.Name = "pesqEndereco";
-            this.pesqEndereco.Size = new System.Drawing.Size(166, 25);
-            this.pesqEndereco.TabIndex = 5;
-            this.pesqEndereco.TextChanged += new System.EventHandler(this.pesqNome_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label6.Location = new System.Drawing.Point(658, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 18);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Data Nasc";
-            // 
-            // pesqNasc
-            // 
-            this.pesqNasc.Location = new System.Drawing.Point(661, 39);
-            this.pesqNasc.Name = "pesqNasc";
-            this.pesqNasc.Size = new System.Drawing.Size(106, 25);
-            this.pesqNasc.TabIndex = 5;
-            this.pesqNasc.TextChanged += new System.EventHandler(this.pesqNome_TextChanged);
-            // 
-            // pescTodos
-            // 
-            this.pescTodos.AutoSize = true;
-            this.pescTodos.BackColor = System.Drawing.Color.Transparent;
-            this.pescTodos.Checked = true;
-            this.pescTodos.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.pescTodos.Location = new System.Drawing.Point(806, 12);
-            this.pescTodos.Name = "pescTodos";
-            this.pescTodos.Size = new System.Drawing.Size(66, 22);
-            this.pescTodos.TabIndex = 10;
-            this.pescTodos.TabStop = true;
-            this.pescTodos.Text = "Todos";
-            this.pescTodos.UseVisualStyleBackColor = false;
-            this.pescTodos.CheckedChanged += new System.EventHandler(this.pescTodos_CheckedChanged);
-            // 
-            // pesqAtivo
-            // 
-            this.pesqAtivo.AutoSize = true;
-            this.pesqAtivo.BackColor = System.Drawing.Color.Transparent;
-            this.pesqAtivo.ForeColor = System.Drawing.Color.Green;
-            this.pesqAtivo.Location = new System.Drawing.Point(806, 31);
-            this.pesqAtivo.Name = "pesqAtivo";
-            this.pesqAtivo.Size = new System.Drawing.Size(66, 22);
-            this.pesqAtivo.TabIndex = 11;
-            this.pesqAtivo.Text = "Ativo";
-            this.pesqAtivo.UseVisualStyleBackColor = false;
-            this.pesqAtivo.CheckedChanged += new System.EventHandler(this.pesqAtivo_CheckedChanged);
-            // 
-            // pesqInativo
-            // 
-            this.pesqInativo.AutoSize = true;
-            this.pesqInativo.BackColor = System.Drawing.Color.Transparent;
-            this.pesqInativo.ForeColor = System.Drawing.Color.Red;
-            this.pesqInativo.Location = new System.Drawing.Point(806, 50);
-            this.pesqInativo.Name = "pesqInativo";
-            this.pesqInativo.Size = new System.Drawing.Size(82, 22);
-            this.pesqInativo.TabIndex = 12;
-            this.pesqInativo.Text = "Inativo";
-            this.pesqInativo.UseVisualStyleBackColor = false;
-            this.pesqInativo.CheckedChanged += new System.EventHandler(this.pesqInativo_CheckedChanged);
-            // 
             // lblTotalLocalizado
             // 
             this.lblTotalLocalizado.AutoSize = true;
@@ -643,12 +471,212 @@
             this.lblTotalInativo.TabIndex = 13;
             this.lblTotalInativo.Text = "Total Inativos: ";
             // 
+            // lblAvisoEncontrado
+            // 
+            this.lblAvisoEncontrado.Font = new System.Drawing.Font("Consolas", 36F);
+            this.lblAvisoEncontrado.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblAvisoEncontrado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAvisoEncontrado.Location = new System.Drawing.Point(16, 135);
+            this.lblAvisoEncontrado.Name = "lblAvisoEncontrado";
+            this.lblAvisoEncontrado.Size = new System.Drawing.Size(1236, 483);
+            this.lblAvisoEncontrado.TabIndex = 14;
+            this.lblAvisoEncontrado.Text = "Nada Encontrado...";
+            this.lblAvisoEncontrado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvisoEncontrado.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id.HeaderText = "Código";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 80;
+            // 
+            // FotoBD
+            // 
+            this.FotoBD.DataPropertyName = "foto";
+            this.FotoBD.HeaderText = "FotoBD";
+            this.FotoBD.Name = "FotoBD";
+            this.FotoBD.ReadOnly = true;
+            this.FotoBD.Visible = false;
+            // 
+            // foto
+            // 
+            this.foto.HeaderText = "Foto";
+            this.foto.Image = ((System.Drawing.Image)(resources.GetObject("foto.Image")));
+            this.foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.foto.Name = "foto";
+            this.foto.ReadOnly = true;
+            this.foto.Width = 50;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.nome.DefaultCellStyle = dataGridViewCellStyle4;
+            this.nome.HeaderText = "Nome do cliente";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 287;
+            // 
+            // documento
+            // 
+            this.documento.DataPropertyName = "documento";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.documento.DefaultCellStyle = dataGridViewCellStyle5;
+            this.documento.HeaderText = "CPF / CNPJ";
+            this.documento.Name = "documento";
+            this.documento.ReadOnly = true;
+            this.documento.Width = 170;
+            // 
+            // rg
+            // 
+            this.rg.DataPropertyName = "rg";
+            this.rg.HeaderText = "RG";
+            this.rg.Name = "rg";
+            this.rg.ReadOnly = true;
+            this.rg.Width = 171;
+            // 
+            // data_nasc
+            // 
+            this.data_nasc.DataPropertyName = "data_nasc";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.data_nasc.DefaultCellStyle = dataGridViewCellStyle6;
+            this.data_nasc.HeaderText = "Nascimento";
+            this.data_nasc.Name = "data_nasc";
+            this.data_nasc.ReadOnly = true;
+            // 
+            // genero
+            // 
+            this.genero.DataPropertyName = "genero";
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.genero.DefaultCellStyle = dataGridViewCellStyle7;
+            this.genero.HeaderText = "Gênero";
+            this.genero.Name = "genero";
+            this.genero.ReadOnly = true;
+            this.genero.Width = 115;
+            // 
+            // estado_civil
+            // 
+            this.estado_civil.DataPropertyName = "estado_civil";
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.estado_civil.DefaultCellStyle = dataGridViewCellStyle8;
+            this.estado_civil.HeaderText = "Estado Civil";
+            this.estado_civil.Name = "estado_civil";
+            this.estado_civil.ReadOnly = true;
+            this.estado_civil.Width = 150;
+            // 
+            // celular
+            // 
+            this.celular.DataPropertyName = "celular";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.celular.DefaultCellStyle = dataGridViewCellStyle9;
+            this.celular.HeaderText = "Celular";
+            this.celular.Name = "celular";
+            this.celular.ReadOnly = true;
+            this.celular.Width = 166;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.email.DefaultCellStyle = dataGridViewCellStyle10;
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 279;
+            // 
+            // cep
+            // 
+            this.cep.DataPropertyName = "cep";
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.cep.DefaultCellStyle = dataGridViewCellStyle11;
+            this.cep.HeaderText = "CEP";
+            this.cep.Name = "cep";
+            this.cep.ReadOnly = true;
+            this.cep.Width = 115;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "endereco";
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.endereco.DefaultCellStyle = dataGridViewCellStyle12;
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
+            this.endereco.Width = 303;
+            // 
+            // bairro
+            // 
+            this.bairro.DataPropertyName = "bairro";
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.bairro.DefaultCellStyle = dataGridViewCellStyle13;
+            this.bairro.HeaderText = "Bairro";
+            this.bairro.Name = "bairro";
+            this.bairro.ReadOnly = true;
+            this.bairro.Width = 217;
+            // 
+            // cidade
+            // 
+            this.cidade.DataPropertyName = "cidade";
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.cidade.DefaultCellStyle = dataGridViewCellStyle14;
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            this.cidade.Width = 226;
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estado";
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.estado.DefaultCellStyle = dataGridViewCellStyle15;
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Width = 180;
+            // 
+            // numero
+            // 
+            this.numero.DataPropertyName = "numero";
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.numero.DefaultCellStyle = dataGridViewCellStyle16;
+            this.numero.HeaderText = "Nº ";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
+            this.numero.Width = 70;
+            // 
+            // obs
+            // 
+            this.obs.DataPropertyName = "obs";
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.obs.DefaultCellStyle = dataGridViewCellStyle17;
+            this.obs.HeaderText = "Obs";
+            this.obs.Name = "obs";
+            this.obs.ReadOnly = true;
+            this.obs.Visible = false;
+            this.obs.Width = 69;
+            // 
+            // situacao
+            // 
+            this.situacao.DataPropertyName = "situacao";
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.situacao.DefaultCellStyle = dataGridViewCellStyle18;
+            this.situacao.HeaderText = "Situação";
+            this.situacao.Name = "situacao";
+            this.situacao.ReadOnly = true;
+            // 
             // FMenuClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lblAvisoEncontrado);
             this.Controls.Add(this.lblTotalInativo);
             this.Controls.Add(this.lblTotalAtivo);
             this.Controls.Add(this.lblTotalLocalizado);
@@ -680,24 +708,6 @@
         private System.Windows.Forms.Button btnRelatorioCliente;
         private System.Windows.Forms.Button btnFichaCliente;
         private System.Windows.Forms.DataGridView dtgListaCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewImageColumn foto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_nasc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado_civil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn celular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn obs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox pesqCod;
@@ -717,5 +727,25 @@
         private System.Windows.Forms.Label lblTotalLocalizado;
         private System.Windows.Forms.Label lblTotalAtivo;
         private System.Windows.Forms.Label lblTotalInativo;
+        private System.Windows.Forms.Label lblAvisoEncontrado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewImageColumn FotoBD;
+        private System.Windows.Forms.DataGridViewImageColumn foto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_nasc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado_civil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn celular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn obs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
     }
 }

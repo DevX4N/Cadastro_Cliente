@@ -81,5 +81,34 @@ namespace Cadastro_Cliente
             cmb.SelectedIndex = -1;
         }
 
+        public static void SalvarImagemPequena(string ArquivoOriginal, string NovaFoto, int Largura, int Altura, bool onlyResizeIfWider)
+        {
+            Image TamanhoImagem = Image.FromFile(ArquivoOriginal);
+
+            TamanhoImagem.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            TamanhoImagem.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+            if (onlyResizeIfWider)
+            {
+                if (TamanhoImagem.Width <= Largura)
+                {
+                    Largura = TamanhoImagem.Width;
+                }
+            }
+
+            int newHeight = TamanhoImagem.Height * Largura / TamanhoImagem.Width;
+
+            if (newHeight > Altura)
+            {
+                Largura = TamanhoImagem.Width * Altura / TamanhoImagem.Height;
+                newHeight = Altura;
+            }
+
+            Image NovaImagem = TamanhoImagem.GetThumbnailImage(Largura, newHeight, null, IntPtr.Zero);
+
+            TamanhoImagem.Dispose();
+
+            NovaImagem.Save(NovaFoto);
+        }
     }
 }

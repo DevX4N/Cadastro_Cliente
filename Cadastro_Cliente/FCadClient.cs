@@ -370,6 +370,8 @@ namespace Cadastro_Cliente
             }
         }
 
+        byte[] imgBytes;
+
         private void btnAddFoto_Click(object sender, EventArgs e)
         {
             if (txtID.Text == "")
@@ -384,8 +386,25 @@ namespace Cadastro_Cliente
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pctImgCliente.Image = Image.FromFile(openFileDialog.FileName);
-                File.Copy(openFileDialog.FileName, pastaFotos + "Cliente" + txtID.Text + ".png");
+                
+                //File.Copy(openFileDialog.FileName, pastaFotos + "Cliente" + txtID.Text + ".png");
+
+                funcoes.SalvarImagemPequena(openFileDialog.FileName, AppDomain.CurrentDomain.BaseDirectory + "/FotoTemp.png", pctImgCliente.Width, pctImgCliente.Height, false);
+
+                pctImgCliente.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/FotoTemp.png");
+                imgBytes = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "/FotoTemp.png");
+
+                using (MySqlConnection con = new MySqlConnection(strConexao))
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = "UPDATE tclientes set foto = @foto WHERE id = @id";
+                        cmd.Parameters.AddWithValue("@foto", imgBytes);
+                        cmd.Parameters.AddWithValue("id", txtID.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
             }
         }
 
@@ -397,7 +416,7 @@ namespace Cadastro_Cliente
                 return;
             }
 
-            if (File.Exists(pastaFotos + "Cliente" + txtID.Text + ".png"))
+            if (File.Exists(pastaFotos + "Cliente" + txtID.Text + ".png") == false)
             {
                 funcoes.msgErro("Não há foto para remover");
                 return;
@@ -406,7 +425,8 @@ namespace Cadastro_Cliente
             if (funcoes.msgPergunta("Deseja realmente remover a foto?") == false)
                 return;
             pctImgCliente.Image = Properties.Resources.Monkey;
-            File.Delete(pastaFotos + "Cliente" + txtID.Text + ".png");
+
+            File.Delete(pastaFotos + txtID.Text + ".png");
         }
 
         private void FCadClient_Load(object sender, EventArgs e)
@@ -469,7 +489,7 @@ namespace Cadastro_Cliente
 
             if (File.Exists(pastaFotos + "Cliente" + txtID.Text + ".png"))
             {
-                pctImgCliente.Image = Image.FromFile(pastaFotos + "Cliente" + txtID.Text + ".png");
+                pctImgCliente.LoadAsync(pastaFotos + "Cliente" + txtID.Text + ".png");
             }
             else
             {
