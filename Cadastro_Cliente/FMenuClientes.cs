@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 using MySql.Data.MySqlClient;
 
 namespace Cadastro_Cliente
@@ -38,7 +39,7 @@ namespace Cadastro_Cliente
             ReoganizarGrid();
         }
 
-        
+
 
         private void ReoganizarGrid()
         {
@@ -61,11 +62,13 @@ namespace Cadastro_Cliente
 
             dtgListaCliente.ClearSelection();
             btnAlterarCliente.Enabled = false;
+            btnFichaCliente.Enabled = false;
         }
 
         private void dtgListaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAlterarCliente.Enabled = true;
+            btnFichaCliente.Enabled = true;
         }
 
         private void btnAlterarCliente_Click(object sender, EventArgs e)
@@ -208,25 +211,9 @@ namespace Cadastro_Cliente
             lin.DefaultCellStyle.BackColor = Color.SkyBlue;
 
             if (lin.Cells["FotoBD"].Value == DBNull.Value)
-               lin.Cells["foto"].Value = Properties.Resources.Monkey;
+                lin.Cells["foto"].Value = Properties.Resources.Monkey;
             else
-            lin.Cells["foto"].Value = lin.Cells["FotoBD"].Value;
-
-
-            //if (File.Exists(pastaFotos + lin.Cells["id"].Value.ToString() + ".png"))
-            //{
-            //    //lin.Cells["foto"].Value = Image.FromFile(pastaFotos + lin.Cells["id"].Value.ToString() + ".png");
-
-            //    using (FileStream temp = new FileStream(pastaFotos + lin.Cells["id"].Value.ToString() + ".png", FileMode.Open, FileAccess.Read))
-            //    {
-            //        Image img = Image.FromStream(temp);
-            //        lin.Cells["foto"].Value = img;
-            //    }
-            //}
-            //else
-            //{
-            //  
-            //}
+                lin.Cells["foto"].Value = lin.Cells["FotoBD"].Value;
 
         }
 
@@ -235,9 +222,60 @@ namespace Cadastro_Cliente
             if (e.RowIndex == -1)
                 return;
 
-            dtgListaCliente.Rows[e.RowIndex].DefaultCellStyle.BackColor =  e.RowIndex % 2 == 0 ? Color.White : Color.AliceBlue;
+            dtgListaCliente.Rows[e.RowIndex].DefaultCellStyle.BackColor = e.RowIndex % 2 == 0 ? Color.White : Color.AliceBlue;
             dtgListaCliente.Rows[e.RowIndex].Cells["foto"].Value = null;
 
         }
+
+        private void btnRelatorioCliente_Click(object sender, EventArgs e)
+        {
+  
+            DataTable dt = funcoes.BuscaSQL("SELECT * FROM tclientes");
+
+            DS.DadosClienteDataTable dtgCli = new DS.DadosClienteDataTable();
+            dtgCli.Merge(dt);
+
+       
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dtgCli as DataTable);
+            RelatorioClientes.LocalReport.DataSources.Clear();
+            RelatorioClientes.LocalReport.DataSources.Add(reportDataSource);
+
+            funcoes.ImprimirPDF(RelatorioClientes, "RelatorioCliente");
+        }
+
+        private void btnFichaCliente_Click(object sender, EventArgs e)
+        {
+            string id = dtgListaCliente.CurrentRow.Cells["id"].Value.ToString();
+            DataTable dt = funcoes.BuscaSQL("SELECT * FROM tclientes WHERE id = " + id);
+
+            DS.DadosClienteDataTable dtgCli = new DS.DadosClienteDataTable();
+            dtgCli.Merge(dt);
+
+            if (dtgCli.Rows[0]["foto"] != DBNull.Value)
+                dtgCli.Rows[0]["foto"] = dt.Rows[0]["foto"];
+            else
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    Properties.Resources.Monkey.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    dtgCli.Rows[0]["foto"] = ms.ToArray();
+                }
+            }
+
+            ReportDataSource reportDataSource = new ReportDataSource("DataSet1" , dtgCli as DataTable);
+            reportFicha.LocalReport.DataSources.Clear();
+            reportFicha.LocalReport.DataSources.Add(reportDataSource);
+
+            funcoes.ImprimirPDF(reportFicha, "FichaCadastral");
+        }
     }
 }
+
+
+
+
+
+//}
+//dtgCli.Rows.Add(linha);
+//    }
+

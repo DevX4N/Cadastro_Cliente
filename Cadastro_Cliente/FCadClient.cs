@@ -27,7 +27,7 @@ namespace Cadastro_Cliente
             InitializeComponent();
         }
 
-        string strConexao = "Server=127.0.0.1; Port=3306; Database=base; User=root; Password=;";
+        public static string strConexao = "Server=127.0.0.1; Port=3306; Database=base; User=root; Password=;";
         string pastaFotos = AppDomain.CurrentDomain.BaseDirectory + "//fotos//";
 
         private void FCadClient_KeyDown(object sender, KeyEventArgs e)
@@ -102,7 +102,6 @@ namespace Cadastro_Cliente
                         cmd.CommandText = "SELECT @@IDENTITY";
                         txtID.Text = cmd.ExecuteScalar().ToString();
                     }
-
                   
                 }
                 MessageBox.Show("Tudo certo!");
@@ -487,13 +486,13 @@ namespace Cadastro_Cliente
                 chkSituacao.Checked = false;
             }
 
-            if (File.Exists(pastaFotos + "Cliente" + txtID.Text + ".png"))
-            {
-                pctImgCliente.LoadAsync(pastaFotos + "Cliente" + txtID.Text + ".png");
-            }
+            if (dt.Rows[0]["foto"] == DBNull.Value)
+                pctImgCliente.Image = Properties.Resources.Monkey;
             else
             {
-                pctImgCliente.Image = Properties.Resources.Monkey;
+                imgBytes = (byte[])dt.Rows[0]["foto"];
+                MemoryStream ms = new MemoryStream(imgBytes);
+                pctImgCliente.Image = Image.FromStream(ms);
             }
         }
     }

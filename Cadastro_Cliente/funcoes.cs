@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 using MySql.Data.MySqlClient;
 
 namespace Cadastro_Cliente
@@ -109,6 +111,38 @@ namespace Cadastro_Cliente
             TamanhoImagem.Dispose();
 
             NovaImagem.Save(NovaFoto);
+        }
+
+        public static void ImprimirPDF(ReportViewer report, string nomeArquivo, ReportParameterCollection p = null)
+        {
+            if (p != null)
+                report.LocalReport.SetParameters(p);
+
+            report.Refresh();
+            report.RefreshReport();
+
+            try
+            {
+                Warning[] warnings;
+                string[] streamids;
+                string mimeType;
+                string encoding;
+                string filenameExtension;
+
+                byte[] bytes = report.LocalReport.Render(
+                "PDF", null, out mimeType, out encoding, out filenameExtension,
+                out streamids, out warnings);
+                using (FileStream fs = new FileStream(nomeArquivo + ".pdf", FileMode.Create))
+                {
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+
+                System.Diagnostics.Process.Start(nomeArquivo + ".pdf");
+            }
+            catch (Exception)
+            {
+                funcoes.msgErro("Cadastro Clientes");
+            }
         }
     }
 }
