@@ -139,6 +139,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DS.cs">
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>

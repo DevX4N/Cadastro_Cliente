@@ -144,5 +144,10 @@ namespace Cadastro_Cliente
                 funcoes.msgErro("Cadastro Clientes");
             }
         }
+
+       public static void corDoForm()
+        {
+
+        }
     }
 }

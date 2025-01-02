@@ -14,7 +14,7 @@ using MySql.Data.MySqlClient;
 
 namespace Cadastro_Cliente
 {
-    public partial class FMenuClientes : Form
+    public partial class FMenuClientes : CustomForm
     {
         public FMenuClientes()
         {
@@ -268,6 +268,46 @@ namespace Cadastro_Cliente
 
             funcoes.ImprimirPDF(reportFicha, "FichaCadastral");
         }
+
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // Ativar KeyPreview para capturar teclas pressionadas
+            KeyPreview = true;
+
+            // Associar evento KeyDown
+            KeyDown += FMenuClientes_KeyDown;
+        }
+
+        private void FMenuClientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Handled) return;
+            switch (e.KeyCode)
+            {
+                case Keys.F4:
+                    e.Handled = true;
+                    btnNovoCliente.PerformClick();
+                    break;
+                case Keys.F5:
+                    e.Handled = true;
+                    btnAlterarCliente.PerformClick();
+                    break;
+                case Keys.F6:
+                    e.Handled = true;
+                    btnRelatorioCliente.PerformClick();
+                    break;
+                case Keys.F7:
+                    e.Handled = true;
+                    btnFichaCliente.PerformClick();
+                    break;
+                case Keys.Escape:
+                    e.Handled = true;
+                    Close();
+                    break;
+            }
+        }
     }
 }
 
@@ -275,7 +315,5 @@ namespace Cadastro_Cliente
 
 
 
-//}
-//dtgCli.Rows.Add(linha);
-//    }
+
 

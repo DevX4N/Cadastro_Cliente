@@ -20,7 +20,7 @@ using Newtonsoft.Json;
 namespace Cadastro_Cliente
 {
 
-    public partial class FCadClient : Form
+    public partial class FCadClient : CustomForm
     {
         public FCadClient()
         {
@@ -36,6 +36,10 @@ namespace Cadastro_Cliente
             {
                 SendKeys.Send("{TAB}");
                 e.SuppressKeyPress = true;
+            }
+            if (e.KeyCode == Keys.Escape) { 
+                e.Handled = true;
+                Close();
             }
         }
 
@@ -104,7 +108,7 @@ namespace Cadastro_Cliente
                     }
                   
                 }
-                MessageBox.Show("Tudo certo!");
+                Close();
             }
         }
 
@@ -199,6 +203,7 @@ namespace Cadastro_Cliente
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
+            
             Close();
         }
 

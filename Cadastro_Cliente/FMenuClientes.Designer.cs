@@ -49,6 +49,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnFichaCliente = new System.Windows.Forms.Button();
             this.btnRelatorioCliente = new System.Windows.Forms.Button();
             this.btnAlterarCliente = new System.Windows.Forms.Button();
@@ -102,19 +106,67 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnFichaCliente);
             this.groupBox1.Controls.Add(this.btnRelatorioCliente);
             this.groupBox1.Controls.Add(this.btnAlterarCliente);
             this.groupBox1.Controls.Add(this.btnNovoCliente);
             this.groupBox1.ForeColor = System.Drawing.Color.Silver;
-            this.groupBox1.Location = new System.Drawing.Point(16, 21);
+            this.groupBox1.Location = new System.Drawing.Point(16, 2);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(292, 76);
+            this.groupBox1.Size = new System.Drawing.Size(304, 95);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ações";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Himalaya", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label10.Location = new System.Drawing.Point(231, 74);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 15);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Ficha - F7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Himalaya", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label8.Location = new System.Drawing.Point(86, 74);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 15);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Alterar - F5";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Himalaya", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label9.Location = new System.Drawing.Point(154, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 15);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Relátorio - F6";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Himalaya", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Location = new System.Drawing.Point(21, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Novo - F4";
             // 
             // btnFichaCliente
             // 
@@ -126,7 +178,7 @@
             this.btnFichaCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnFichaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFichaCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnFichaCliente.Image")));
-            this.btnFichaCliente.Location = new System.Drawing.Point(228, 18);
+            this.btnFichaCliente.Location = new System.Drawing.Point(232, 18);
             this.btnFichaCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnFichaCliente.Name = "btnFichaCliente";
             this.btnFichaCliente.Size = new System.Drawing.Size(48, 48);
@@ -143,7 +195,7 @@
             this.btnRelatorioCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
             this.btnRelatorioCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelatorioCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorioCliente.Image")));
-            this.btnRelatorioCliente.Location = new System.Drawing.Point(172, 19);
+            this.btnRelatorioCliente.Location = new System.Drawing.Point(162, 19);
             this.btnRelatorioCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnRelatorioCliente.Name = "btnRelatorioCliente";
             this.btnRelatorioCliente.Size = new System.Drawing.Size(48, 48);
@@ -161,7 +213,7 @@
             this.btnAlterarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.btnAlterarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterarCliente.Image")));
-            this.btnAlterarCliente.Location = new System.Drawing.Point(88, 18);
+            this.btnAlterarCliente.Location = new System.Drawing.Point(92, 18);
             this.btnAlterarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlterarCliente.Name = "btnAlterarCliente";
             this.btnAlterarCliente.Size = new System.Drawing.Size(48, 48);
@@ -179,7 +231,7 @@
             this.btnNovoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovoCliente.ForeColor = System.Drawing.Color.Transparent;
             this.btnNovoCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoCliente.Image")));
-            this.btnNovoCliente.Location = new System.Drawing.Point(16, 18);
+            this.btnNovoCliente.Location = new System.Drawing.Point(22, 18);
             this.btnNovoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovoCliente.Name = "btnNovoCliente";
             this.btnNovoCliente.Size = new System.Drawing.Size(48, 48);
@@ -715,6 +767,7 @@
             this.Controls.Add(this.dtgListaCliente);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Consolas", 11F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -722,7 +775,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Clientes";
             this.Load += new System.EventHandler(this.FMenuClientes_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FMenuClientes_KeyDown);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListaCliente)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -780,5 +835,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
         private Microsoft.Reporting.WinForms.ReportViewer reportFicha;
         private Microsoft.Reporting.WinForms.ReportViewer RelatorioClientes;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
     }
 }
